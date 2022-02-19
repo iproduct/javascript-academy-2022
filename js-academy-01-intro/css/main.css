@@ -24,6 +24,8 @@
   width: 200px;
 }
 
+/* FLEXBOX LAYOUT DEMO */
+
 * {
   box-sizing: border-box;
 }
@@ -34,22 +36,27 @@ body {
   margin: 0;
 }
 
+#top {
+    background-color: rgb(252, 198, 23);
+    padding: 2px;
+}
+
 /* Header/logo Title */
 .header {
   padding: 60px;
   text-align: center;
-  background: #1abc9c;
+  background: #275cee;
   color: white;
 }
 
 /* Style the top navigation bar */
-.navbar {
+nav {
   display: flex;
   background-color: #333;
 }
 
 /* Style the navigation bar links */
-.navbar a {
+nav a {
   color: white;
   padding: 14px 20px;
   text-decoration: none;
@@ -57,7 +64,7 @@ body {
 }
 
 /* Change color on hover */
-.navbar a:hover {
+nav a:hover {
   background-color: #ddd;
   color: black;
 }
@@ -70,14 +77,14 @@ body {
 
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
-.side {
+aside {
   flex: 30%;
   background-color: #f1f1f1;
   padding: 20px;
 }
 
 /* Main column */
-.main {
+main {
   flex: 70%;
   background-color: white;
   padding: 20px;
@@ -91,21 +98,25 @@ body {
 }
 
 /* Footer */
-.footer {
+footer {
   padding: 20px;
   text-align: center;
   background: #ddd;
 }
 
+footer div {
+    font-size: 1.2em;
+}
+
 /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 700px) {
   .row,
-  .navbar {
+  nav {
     flex-direction: column;
   }
 }
 
-/* GRID EXAMPLE */
+/* GRID EXAMPLE 01 */
 .grid-container {
   display: grid;
   grid-template-columns: 200px 1fr 1fr 2fr;
@@ -129,7 +140,7 @@ body {
   place-self: center stretch;
 }
 
-/* GRID TEMPLATE */
+/* GRID TEMPLATE EXAMPLE 02*/
 
 .item1 {
   grid-area: header;
@@ -156,7 +167,7 @@ body {
   gap: 10px;
   background-color: #2196f3;
   padding: 10px;
-  height: 700px
+  height: 700px;
 }
 
 .grid-container2 div {
