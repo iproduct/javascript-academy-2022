@@ -45,7 +45,7 @@ body {
 .header {
   padding: 60px;
   text-align: center;
-  background: #275cee;
+  background: DodgerBlue;
   color: white;
 }
 
@@ -116,60 +116,3 @@ footer div {
   }
 }
 
-/* GRID EXAMPLE 01 */
-.grid-container {
-  display: grid;
-  grid-template-columns: 200px 1fr 1fr 2fr;
-  grid-template-rows: 1fr 2fr 1fr;
-  background-color: #2196f3;
-  padding: 10px;
-  height: 600px;
-  gap: 10px 20px;
-  justify-content: center;
-}
-.grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 20px;
-  font-size: 30px;
-  text-align: center;
-}
-
-#elem7 {
-  grid-column: 3 / 5;
-  place-self: center stretch;
-}
-
-/* GRID TEMPLATE EXAMPLE 02*/
-
-.item1 {
-  grid-area: header;
-}
-.item2 {
-  grid-area: menu;
-}
-.item3 {
-  grid-area: main;
-}
-.item4 {
-  grid-area: right;
-}
-.item5 {
-  grid-area: footer;
-}
-.grid-container2 {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'menu main main main right right'
-    'menu footer footer footer footer footer';
-  grid-template-rows: 100px auto 150px;
-  gap: 10px;
-  background-color: #2196f3;
-  padding: 10px;
-  height: 700px;
-}
-
-.grid-container2 div {
-  border: 1px solid blue;
-}

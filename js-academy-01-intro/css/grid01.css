@@ -1,0 +1,25 @@
+/* GRID EXAMPLE 01 */
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr 2fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    background-color: #2196f3;
+    padding: 10px;
+    height: 600px;
+    gap: 10px 20px;
+    justify-content: center;
+  }
+  .grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+  
+  #elem7 {
+    grid-column: 3 / 5;
+    place-self: center stretch;
+  }
+  
+  
