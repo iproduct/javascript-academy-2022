@@ -1,0 +1,15 @@
+{
+  "name": "02-fetch-lab",
+  "version": "1.0.0",
+  "description": "Fetch Github API demo",
+  "main": "index.js",
+  "repository": "https://github.com/iproduct/fullstack-react-academy",
+  "author": "Trayan Iliev",
+  "license": "Apache 2.0",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
