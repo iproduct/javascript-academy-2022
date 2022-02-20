@@ -14,7 +14,7 @@ var counter = function countWithClosure() { //IIFE - Module pattern
 }();
 
 console.log(counter.increment());
-// console.log(counter.count)
+console.log(counter._inc)
 console.log(counter.increment());
 console.log(counter.increment());
 console.log(counter.increment());

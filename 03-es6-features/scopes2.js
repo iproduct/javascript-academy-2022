@@ -6,16 +6,17 @@ for (var i = 0; i < 10; i++) {
   }(i), i * 1000);
 }
 
-function test() {
+function test1() {
   for (var i = 0; i < 10; i++) {
     setTimeout((x => () => console.log(x))(i), i * 1000);
   }
 }
 
-function test() {
+function test2() {
   for (let i = 0; i < 10; i++) {
     setTimeout(() => console.log(i), i * 1000);
   }
 }
 
-test()
+test1()
+test2()
