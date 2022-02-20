@@ -18,7 +18,7 @@
   }
   
   #elem7 {
-    grid-column: 3 / 5;
+    grid-column: 3 / span 2;
     place-self: center stretch;
   }
   
