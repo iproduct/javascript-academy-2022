@@ -1,0 +1,9 @@
+{
+  "name": "js-academy-02-js",
+  "version": "1.0.0",
+  "description": "Introduction to ES",
+  "main": "index.js",
+  "repository": "https://github.com/iproduct/javascript-academy-2022.git",
+  "author": "Trayan Iliev",
+  "license": "Apache-2.0"
+}
