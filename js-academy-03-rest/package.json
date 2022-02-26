@@ -1,0 +1,17 @@
+{
+  "name": "js-academy-03-rest",
+  "version": "1.0.0",
+  "description": "Fetch API demo using json-server backend",
+  "main": "index.js",
+  "repository": "https://github.com/iproduct/javascript-academy-2022.git",
+  "author": "Trayan Iliev",
+  "license": "Apache-2.0",
+  "scripts": {
+    "api": "json-server db.json --routes routes.json",
+    "start": "lite-server"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0",
+    "lite-server": "^2.6.1"
+  }
+}
