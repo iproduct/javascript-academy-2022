@@ -12,20 +12,20 @@
 // console.log(a); // 1
 // console.log(b); // 2
 // console.log(rest); // [3, 4, 5]
-// console.log(crest, rest, crest === rest);
+// console.log(crest, rest, crest == rest);
 
-// let {a, c} = {a:1, b:2, c:3};
+// let {c:c, a:a} = {a:1, b:2, c:3};
 // console.log(a); // 1
 // console.log(c); // 2
 
 // ES7 - not implemented in Firefox 47a01
-// let {a, b, ...rest} = {a:1, b:2, c:3, d:4};
-{/* <child ...rest />  */}
-const a = [[1], [2], [3]];
-// const b = [ ...a, [4]];
-const b = [...JSON.parse(JSON.stringify(a)), [4]];
-const [, c] = a;
-console.log(c.shift());
+// let {b, a,...rest} = {a:1, b:2, c:3, d:4};
+// {/* <child ...rest />  */}
+// const a = [[1], [2], [3]];
+// // const b = [ ...a, [4]];
+// const b = [...JSON.parse(JSON.stringify(a)), [4]];
+// const [, c] = b;
+// console.log(c.shift());
 // console.log(a.shift());
 
 // console.log(b.shift().shift());
@@ -33,4 +33,5 @@ console.log(c.shift());
 console.log('a=', a);
 console.log('b=', b);
 console.log('c=', c);
+// console.log('rest=', rest);
 

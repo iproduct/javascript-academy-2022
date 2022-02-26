@@ -1,7 +1,7 @@
 function msgAfterTimeout (who, timeout) {
     return new Promise((resolve, reject) => {
         setTimeout(
-            () => (Math.random() >= 1) ? 
+            () => (Math.random() >= 0) ? 
                 resolve(`Hello ${who}!`)
                 : reject('Error getting message.'),
             timeout)

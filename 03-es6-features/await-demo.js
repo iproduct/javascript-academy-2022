@@ -10,7 +10,7 @@ async function f() {
     console.log(result);
   } catch(err) {
     result = 'Error processed successfully.';
-    throw err;
+    // throw err;
   }
   return result;
 }
