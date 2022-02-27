@@ -13,7 +13,7 @@ class TodoInput extends Component {
         return (
             <form className="TodoInput-form" onSubmit={this.handleSubmit}>
                 <input placeholder="What to do next?" type="text" id="text" name="text"
-                    value={this.state.text} onChange={this.handleStateChanged} />
+                    value={this.state.text} onChange={this.handleTextChanged} />
                 <button type="submit">Submit</button>
             </form>
         );
