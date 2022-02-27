@@ -27,17 +27,6 @@
   ],
   "posts": [
     {
-      "id": 1,
-      "title": "json-server",
-      "content": "typicode",
-      "authorId": 2,
-      "tags": [
-        "json",
-        "server"
-      ],
-      "status": "ACTIVE"
-    },
-    {
       "id": 2,
       "title": "Fetch API",
       "content": "Fetch API is easy to use Promise-based web service client API.",
@@ -103,23 +92,15 @@
       "id": 6
     },
     {
-      "title": "aaa",
-      "content": "aaa",
+      "title": "wsdswdsqwqewq",
+      "content": "dsfd",
       "tags": [
-        "aaa",
-        "bbb",
-        "cccc"
+        "sddds"
       ],
       "authorId": 2,
       "status": "ACTIVE",
       "id": 7
     }
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ]
+  "comments": []
 }
