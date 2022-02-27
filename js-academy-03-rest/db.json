@@ -88,6 +88,19 @@
       ],
       "status": "ACTIVE",
       "id": 5
+    },
+    {
+      "title": "SSE API",
+      "content": "SSE API is easy to use Promise-based web service client API.",
+      "authorId": 1,
+      "tags": [
+        "fetch",
+        "api",
+        "http",
+        "client"
+      ],
+      "status": "ACTIVE",
+      "id": 6
     }
   ],
   "comments": [
