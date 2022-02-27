@@ -1,11 +1,12 @@
 import { Component } from 'react';
 import { Todo } from '../model/todo-model';
+import PropTypes from 'prop-types';
 
 class TodoInput extends Component {
     static propTypes = {
-        onSubmitTodo: this.propTypes.func.isRequired
+        onSubmitTodo: PropTypes.func.isRequired
     }
-    
+
     state = { text: '' }
 
     render() {
