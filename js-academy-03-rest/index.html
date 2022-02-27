@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyBlogs Demo</title>
+    <script src="js/main.js" type="module"></script>
 </head>
 <body>
     <h1>MyBlogs Demo</h1>
+    <form id="new-post-form" name="new-post-form">
+        <input type="text" placeholder="Post title" id="title" name="title">
+        <input type="text" placeholder="Post content" id="content" name="content">
+        <input type="text" placeholder="Tags" id="tags" name="tags">
+        <button type="submit" id="submit" name="submit">Submit Post</button>
+    </form>
+    <div id="results"></div>
 </body>
 </html>

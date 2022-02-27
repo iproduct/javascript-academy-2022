@@ -19,6 +19,7 @@
             elem.style.background = "#ffff00";
             alert(elem.className);
             elem.style.background = '';
+            // document.getElementsByClassName("middle")[0].removeEventListener('click', handler, true);
         }
         document.querySelectorAll("div").forEach(
             elem => elem.addEventListener('click', handler, true)
