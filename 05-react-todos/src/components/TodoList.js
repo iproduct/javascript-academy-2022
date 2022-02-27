@@ -1,10 +1,10 @@
-import MOCK_TODOS from "../model/mock-todos";
+import { TodoStatus } from "../model/todo-model";
 import './TodoList.css';
 
-const TodoList = () => {
+const TodoList = ({todos, ...rest}) => {
     return (
         <ul className="TodoList-items">
-            {MOCK_TODOS.map(todo => (<li>{todo.id}: {todo.text} - {todo.status}</li>))}
+            {todos.map(todo => (<li key={todo.id}>{todo.id}: {todo.text} - {TodoStatus[todo.status]}</li>))}
         </ul>
     );
 }

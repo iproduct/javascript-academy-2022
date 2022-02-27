@@ -9,5 +9,6 @@ const MOCK_TODOS = [
     new Todo('Debug TODOs Application'),
     new Todo('Add Todo filtering by status'),
     new Todo('Improve styling')
-]
+];
+
 export default MOCK_TODOS;
