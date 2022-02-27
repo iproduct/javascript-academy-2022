@@ -3,6 +3,7 @@ import { Post } from "./post-model.js";
 window.addEventListener('load', init);
 
 const BASE_API_URL = 'http://localhost:3000/api/';
+const resultsElement = document.getElementById('results');
 
 async function init() {
     const form = document.getElementById('new-post-form');
@@ -16,11 +17,23 @@ function onSubmit(event) {
     const fd = new FormData(event.target);
     const post = new Post(fd.get('title'), fd.get('content'), fd.get('tags').split(",").map(tag => tag.trim()));
     console.log(post);
+    postNewPost(post);
 }
 
+async function postNewPost(post) {
+    const resp = await fetch(BASE_API_URL + 'posts',{
+        headers:{
+            'Content-Type': 'application/json'
+        },
+        method: 'POST',
+        body: JSON.stringify(post)
+    });
+    const created = await resp.json();
+    const postElem = createArticleElement(created);
+    resultsElement.appendChild(postElem);
+}
 
 async function fetchPosts() {
-    const resultsElement = document.getElementById('results');
     resultsElement.innerHTML='';
     const resp = await fetch(BASE_API_URL + 'posts');
     const posts = await resp.json();
@@ -30,6 +43,7 @@ async function fetchPosts() {
             resultsElement.appendChild(postElem);
         });
 }
+
 
 function createArticleElement(post) {
     const article = document.createElement('article');

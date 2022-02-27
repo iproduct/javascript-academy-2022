@@ -101,6 +101,18 @@
       ],
       "status": "ACTIVE",
       "id": 6
+    },
+    {
+      "title": "aaa",
+      "content": "aaa",
+      "tags": [
+        "aaa",
+        "bbb",
+        "cccc"
+      ],
+      "authorId": 2,
+      "status": "ACTIVE",
+      "id": 7
     }
   ],
   "comments": [
