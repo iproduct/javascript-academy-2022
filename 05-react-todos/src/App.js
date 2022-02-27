@@ -7,11 +7,14 @@ import TodoInput from './components/TodoInput';
 
 function App() {
   const [todos, setTodos] = useState(MOCK_TODOS);
+  function createTodo(todo) {
+    setTodos([...todos, todo])
+  }
   return (
     <div className="App">
       <header className="App-header">
         <h1>React TODOs Demo</h1>
-        <TodoInput on
+        <TodoInput onSubmitTodo={createTodo} />
         <TodoList todos={todos} />
       </header>
     </div>
