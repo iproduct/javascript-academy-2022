@@ -2,6 +2,10 @@ import { Component } from 'react';
 import { Todo } from '../model/todo-model';
 
 class TodoInput extends Component {
+    static propTypes = {
+        onSubmitTodo: this.propTypes.func.isRequired
+    }
+    
     state = { text: '' }
 
     render() {
@@ -18,7 +22,7 @@ class TodoInput extends Component {
         event.preventDefault();
         const text = this.state.text.trim();
         if (text !== '') {
-            this.props.onSubmit(new Todo(text))
+            this.props.onSubmitTodo(new Todo(text))
             this.setState({ text: '' })
         }
     }

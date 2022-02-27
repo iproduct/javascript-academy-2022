@@ -3,6 +3,7 @@ import './App.css';
 import { useState } from "react";
 import TodoList from './components/TodoList';
 import MOCK_TODOS from "./model/mock-todos";
+import TodoInput from './components/TodoInput';
 
 function App() {
   const [todos, setTodos] = useState(MOCK_TODOS);
@@ -10,6 +11,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>React TODOs Demo</h1>
+        <TodoInput on
         <TodoList todos={todos} />
       </header>
     </div>
