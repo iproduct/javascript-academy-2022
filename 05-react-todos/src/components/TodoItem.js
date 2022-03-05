@@ -2,7 +2,7 @@ import './TodoItem.css';
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import { TodoStatus } from '../model/todo-model';
+import { CANCELED, COMPLETED, TodoStatus } from '../model/todo-model';
 
 export const TodoItem = ({ todo, onDeleteTodo, onStatusChanged }) => {
     function handleChangeStatus(newStatus) {
@@ -21,6 +21,12 @@ export const TodoItem = ({ todo, onDeleteTodo, onStatusChanged }) => {
             <span className='TodoItem-right'>
                 <span className='TodoItem-status'>{TodoStatus[todo.status]}</span>
             </span>
+            <span className="TodoItem-button fas fa-check-circle" title="Complete Todo"
+                onClick={() => handleChangeStatus(COMPLETED)} />
+            <span className="TodoItem-button fas fa-check-circle" title="Complete Todo"
+                onClick={() => handleChangeStatus(CANCELED)} />
+            <span className="TodoItem-button danger fas fa-times-circle" title="Delete Todo"
+                onClick={handleDelete} />
         </div>
     )
 }
