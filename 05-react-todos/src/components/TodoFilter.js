@@ -6,7 +6,7 @@ import './TodoFilter.css';
 
 const TodoFilter = ({ filter, onFilterChange }) => {
     function handleFilterChange(event) {
-        onFilterChange(+event.target.value);
+        onFilterChange(Number.parseInt(event.target.value));
     }
     return (
         <select className="TodoFilter" value={filter} onChange={handleFilterChange}>
