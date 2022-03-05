@@ -9,14 +9,24 @@ class TodoInput extends Component {
 
     state = { text: '' }
 
+    constructor(props) {
+        super(props);
+        this.handleTextReset = this.handleTextReset.bind(this);
+    }
+
     render() {
         return (
             <form className="TodoInput-form" onSubmit={this.handleSubmit}>
                 <input placeholder="What to do next?" type="text" id="text" name="text"
                     value={this.state.text} onChange={this.handleTextChanged} />
-                <button type="submit">Submit</button>
+                <button className="button button5" type="submit">Submit</button>
+                <button className="button button3" type="reset" onClick={this.handleTextReset}>Reset</button>
             </form>
         );
+    }
+
+    handleTextReset() {
+        this.setState({ text: '' });
     }
 
     handleSubmit = (event) => {
@@ -24,7 +34,7 @@ class TodoInput extends Component {
         const text = this.state.text.trim();
         if (text !== '') {
             this.props.onSubmitTodo(new Todo(text))
-            this.setState({ text: '' })
+            this.setState({ text: '' });
         }
     }
 
