@@ -28,7 +28,7 @@ function App() {
         <h1>React TODOs Demo</h1>
         <TodoInput onSubmitTodo={createTodo}/>
         <TodoFilter filter={filter} onFilterChange={updateFilter} />
-        <TodoList todos={todos} onDeleteTodo={deleteTodo} onStatusChanged={updateTodo} />
+        <TodoList todos={todos} filter={filter} onDeleteTodo={deleteTodo} onStatusChanged={updateTodo} />
       </header>
     </div>
   );
