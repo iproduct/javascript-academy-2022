@@ -20,13 +20,14 @@ export const TodoItem = ({ todo, onDeleteTodo, onStatusChanged }) => {
             {todo.text}
             <span className='TodoItem-right'>
                 <span className='TodoItem-status'>{TodoStatus[todo.status]}</span>
+
+                <span className="TodoItem-button fas fa-check-circle" title="Complete Todo"
+                    onClick={() => handleChangeStatus(COMPLETED)} />
+                <span className="TodoItem-button danger fas fa-ban" title="Cancel Todo"
+                    onClick={() => handleChangeStatus(CANCELED)} />
+                <span className="TodoItem-button danger fas fa-times-circle" title="Delete Todo"
+                    onClick={handleDelete} />
             </span>
-            <span className="TodoItem-button fas fa-check-circle" title="Complete Todo"
-                onClick={() => handleChangeStatus(COMPLETED)} />
-            <span className="TodoItem-button fas fa-check-circle" title="Complete Todo"
-                onClick={() => handleChangeStatus(CANCELED)} />
-            <span className="TodoItem-button danger fas fa-times-circle" title="Delete Todo"
-                onClick={handleDelete} />
         </div>
     )
 }
