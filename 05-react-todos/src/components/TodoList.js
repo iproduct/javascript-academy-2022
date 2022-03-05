@@ -1,11 +1,11 @@
-import { TodoStatus } from "../model/todo-model";
+import { TodoItem } from "./TodoItem";
 import './TodoList.css';
 
 const TodoList = ({todos, ...rest}) => {
     return (
-        <ul className="TodoList-items">
-            {todos.map(todo => (<li key={todo.id}>{todo.id}: {todo.text} - {TodoStatus[todo.status]}</li>))}
-        </ul>
+        <div className="TodoList-items">
+            {todos.map(todo => (<TodoItem key={todo.id} todo={todo} {...rest} />))}
+        </div>
     );
 }
 
