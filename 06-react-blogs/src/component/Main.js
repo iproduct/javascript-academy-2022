@@ -1,7 +1,8 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 const Main = props => {
+    const [blogs, setBlogs] = useState([]);
     return (
         <div className="container">
             <div className="section">
