@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstName": "Default",
+      "lastName": "Admin",
+      "username": "admin",
+      "passwod": "admin",
+      "role": "ADMIN"
+    },
+    {
+      "id": 2,
+      "firstName": "Default",
+      "lastName": "Author",
+      "username": "author",
+      "passwod": "author",
+      "role": "AUTHOR"
+    },
+    {
+      "id": 3,
+      "firstName": "Default",
+      "lastName": "Reader",
+      "username": "reader",
+      "passwod": "reader",
+      "role": "READER"
+    }
+  ],
+  "posts": [
+    {
+      "id": 2,
+      "title": "Fetch API",
+      "content": "Fetch API is easy to use Promise-based web service client API.",
+      "authorId": 1,
+      "tags": [
+        "fetch",
+        "api",
+        "http",
+        "client"
+      ],
+      "status": "ACTIVE"
+    },
+    {
+      "title": "Fetch API",
+      "content": "Fetch API is easy to use Promise-based web service client API.",
+      "authorId": 1,
+      "tags": [
+        "fetch",
+        "api",
+        "http",
+        "client"
+      ],
+      "status": "ACTIVE",
+      "id": 3
+    },
+    {
+      "title": "Fetch API",
+      "content": "Fetch API is easy to use Promise-based web service client API.",
+      "authorId": 1,
+      "tags": [
+        "fetch",
+        "api",
+        "http",
+        "client"
+      ],
+      "status": "ACTIVE",
+      "id": 4
+    },
+    {
+      "title": "SSE API",
+      "content": "SSE API is easy to use Promise-based web service client API.",
+      "authorId": 1,
+      "tags": [
+        "fetch",
+        "api",
+        "http",
+        "client"
+      ],
+      "status": "ACTIVE",
+      "id": 5
+    },
+    {
+      "title": "SSE API",
+      "content": "SSE API is easy to use Promise-based web service client API.",
+      "authorId": 1,
+      "tags": [
+        "fetch",
+        "api",
+        "http",
+        "client"
+      ],
+      "status": "ACTIVE",
+      "id": 6
+    },
+    {
+      "title": "wsdswdsqwqewq",
+      "content": "dsfd",
+      "tags": [
+        "sddds"
+      ],
+      "authorId": 2,
+      "status": "ACTIVE",
+      "id": 7
+    }
+  ],
+  "comments": []
+}
