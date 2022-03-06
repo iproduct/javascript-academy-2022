@@ -24,7 +24,8 @@ const Main = props => {
     return (
         <div className="container">
             <div className="section">
-                
+                <div className="messages">{messages}</div>
+                <div className="errors">{errors}</div>
                 <div className="row">
                     <PostList posts={blogs} />
                 </div>

@@ -34,8 +34,8 @@ class BlogsApiClient {
                 console.log(`Content fetched: ${JSON.stringify(content)}`);
                 return content;
             } else {
-                console.log(`HTTP Error ${resp.status}: ${resp}\n${content}`);
-                return Promise.reject(`Error performing HTTP request: ${resp.status}: ${resp}`);
+                console.log(`HTTP Error ${resp.status}: ${JSON.stringify(resp)}\n${JSON.stringify(content)}`);
+                return Promise.reject(`Error performing HTTP request: ${resp.status}: ${JSON.stringify(resp)}`);
             }
         } catch(err){
             console.log(`HTTP Error performing request: ${err}`);
