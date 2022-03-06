@@ -31,6 +31,7 @@ class BlogsApiClient {
             const resp = await asyncRequestFunc();
             const content = await resp.json();
             if( resp.status < 400) {
+                console.log(`Content fetched: ${JSON.stringify(content)}`);
                 return content;
             } else {
                 console.log(`HTTP Error ${resp.status}: ${resp}\n${content}`);

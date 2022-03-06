@@ -37,6 +37,7 @@
         "http",
         "client"
       ],
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/220000/velka/binare-kontakte.jpg",
       "status": "ACTIVE"
     },
     {
@@ -49,6 +50,7 @@
         "http",
         "client"
       ],
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
       "status": "ACTIVE",
       "id": 3
     },
@@ -62,6 +64,7 @@
         "http",
         "client"
       ],
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/160000/velka/ancient-world-map-from-1689.jpg",
       "status": "ACTIVE",
       "id": 4
     },
@@ -75,6 +78,7 @@
         "http",
         "client"
       ],
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
       "status": "ACTIVE",
       "id": 5
     },
@@ -88,6 +92,7 @@
         "http",
         "client"
       ],
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
       "status": "ACTIVE",
       "id": 6
     },
@@ -98,6 +103,7 @@
         "sddds"
       ],
       "authorId": 2,
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
       "status": "ACTIVE",
       "id": 7
     }
