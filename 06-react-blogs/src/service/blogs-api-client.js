@@ -1,7 +1,7 @@
 
 export const BLOGS_API_BASE_URL = 'http://localhost:8080/api';
 
-export class BlogsApiClient {
+class BlogsApiClient {
     constructor(baserApiUrl) {
         this.baserApiUrl = baserApiUrl;
     }
@@ -42,3 +42,5 @@ export class BlogsApiClient {
         }
     }  
 }
+
+export default new BlogsApiClient(BLOGS_API_BASE_URL);
