@@ -1,0 +1,13 @@
+.Invoice nav a {
+    display: "block";
+    margin: "1rem 0";
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 1px solid brown;
+}
+  
+.Invoice nav a.active {
+    color: white;
+    background-color: brown;
+    
+  }

@@ -1,0 +1,24 @@
+.App-container {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+
+.App-container input {
+  display: block;
+  margin: 10px;
+}
+
+.App-container button {
+  margin: 10px;
+}
+
+.App-container .feedback {
+  font-size: 0.7em;
+  color: red;
+  padding: 5px 10px;
+  background-color: lightpink;
+  border: 1px solid red;
+  border-radius: 10px;
+  max-width: fit-content;
+}

@@ -1,0 +1,31 @@
+.App {
+  margin: 20px 30px;
+}
+
+.App aside {
+  float: right;
+  width: 400px;
+  border: 1px solid orange;
+}
+
+.App nav ul {
+  list-style-type: none;
+  display: flex;
+}
+
+.App nav ul li {
+  margin: 10px 30px;
+}
+
+.App nav ul li a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid brown;
+}
+
+.App nav ul li a.active {
+  color: white;
+  background-color: brown;
+  
+}
+

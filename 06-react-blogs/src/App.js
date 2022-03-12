@@ -8,7 +8,11 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Header />
+      <Header>
+        <div>A modern responsive front-end framework based on Material Design</div>
+        <header>My Blogs Demo</header>
+        <span className="button-text">Add New Blog</span>
+      </Header>
       <Main />
       <Footer />
     </div>
