@@ -3,7 +3,6 @@ import Footer from './component/Footer';
 import Header from './component/Header';
 import Main from './component/Main';
 import Nav from './component/Nav';
-import { TabContainer } from './component/TabContainer';
 
 function App() {
   return (
@@ -14,8 +13,7 @@ function App() {
         <header>My Blogs Demo</header>
         <span className="button-text">Add New Blog</span>
       </Header>
-      <TabContainer />
-      {/* <Main /> */}
+      <Main />
       <Footer />
     </div>
   );

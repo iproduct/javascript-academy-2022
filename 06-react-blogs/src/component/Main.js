@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import BlogsClient from '../service/blogs-api-client';
 import PropTypes from 'prop-types';
 import PostList from './PostList';
+import { TabContainer } from './TabContainer';
+import { TabPanel } from './TabPanel';
 
 const Main = props => {
     const [blogs, setBlogs] = useState([]);
@@ -27,7 +29,10 @@ const Main = props => {
                 <div className="messages">{messages}</div>
                 <div className="errors">{errors}</div>
                 <div className="row">
-                    <PostList posts={blogs} />
+                    <TabContainer>
+                        <TabPanel id="results" title="All Blogs"> <PostList posts={blogs} /></TabPanel>
+                        <TabPanel id="favourites" title="Favourite Blogs">Test 2 content ...</TabPanel>
+                    </TabContainer>
                 </div>
             </div>
         </div>
