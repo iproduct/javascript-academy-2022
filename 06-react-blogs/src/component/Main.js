@@ -13,17 +13,17 @@ class Main extends Component {
     }
 
     clearMessagesAndErors = () => {
-        this.setState({messages: undefined, errors: undefined});
+        this.setState({ messages: undefined, errors: undefined });
     }
 
     componentDidMount() {
         BlogsClient.fetchPosts()
             .then(results => {
-                this.setState({blogs:results})
+                this.setState({ blogs: results })
                 this.clearMessagesAndErors()
             })
             .catch(err => {
-                this.setState({erors: err});
+                this.setState({ errors: err });
             });
     }
 
@@ -31,8 +31,8 @@ class Main extends Component {
         return (
             <div className="container">
                 <div className="section">
-                    <div className="messages">{this.state.messages}</div>
-                    <div className="errors">{this.state.errors}</div>
+                    {this.state.messages && <div className="messages">{this.state.messages}</div>}
+                    {this.state.errors && <div className="errors">{this.state.errors}</div>}
                     <div className="row">
                         <TabContainer>
                             <TabPanel id="results" title="All Blogs"> <PostList posts={this.state.blogs} /></TabPanel>
