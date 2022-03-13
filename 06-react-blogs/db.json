@@ -38,7 +38,7 @@
         "client"
       ],
       "imageUrl": "https://www.publicdomainpictures.net/pictures/220000/velka/binare-kontakte.jpg",
-      "status": "ACTIVE"
+      "active": true
     },
     {
       "title": "Fetch API",
@@ -51,7 +51,7 @@
         "client"
       ],
       "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
-      "status": "ACTIVE",
+      "active": true,
       "id": 3
     },
     {
@@ -65,7 +65,7 @@
         "client"
       ],
       "imageUrl": "https://www.publicdomainpictures.net/pictures/160000/velka/ancient-world-map-from-1689.jpg",
-      "status": "ACTIVE",
+      "active": true,
       "id": 4
     },
     {
@@ -79,7 +79,7 @@
         "client"
       ],
       "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
-      "status": "ACTIVE",
+      "active": true,
       "id": 5
     },
     {
@@ -93,7 +93,7 @@
         "client"
       ],
       "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
-      "status": "ACTIVE",
+      "active": true,
       "id": 6
     },
     {
@@ -104,8 +104,62 @@
       ],
       "authorId": 2,
       "imageUrl": "https://www.publicdomainpictures.net/pictures/140000/velka/world-map-background-14480206083Me.jpg",
-      "status": "ACTIVE",
+      "active": true,
       "id": 7
+    },
+    {
+      "id": 8,
+      "title": "aaa",
+      "content": "aaaa\naaa\naaa\n\naaaaaa",
+      "tags": [
+        "aaaa",
+        "bbbb",
+        "cccc"
+      ],
+      "imageUrl": "https://assets.logitech.com/assets/64683/performance-mouse-mx.png",
+      "authorId": 2,
+      "active": true
+    },
+    {
+      "id": 9,
+      "title": "Hello React",
+      "content": "Hello React content ...\nEasy ...",
+      "tags": [
+        "react",
+        "hello",
+        "intro"
+      ],
+      "imageUrl": "https://www.publicdomainpictures.net/pictures/250000/velka/mars-1515656849bmH.jpg",
+      "authorId": 2,
+      "active": true
+    },
+    {
+      "id": 10,
+      "title": "sdfwe",
+      "content": "ewewewfrewf",
+      "tags": [
+        "refref",
+        "ferref",
+        "rfref"
+      ],
+      "imageUrl": "https://cdn.mos.cms.futurecdn.net/sfgpCc8Ba2GFWVLcPmBzcM.jpg",
+      "authorId": 2,
+      "active": true
+    },
+    {
+      "id": 11,
+      "title": "React Controlled vs Uncontrolled Components",
+      "content": "React Controlled vs Uncontrolled Components content ...",
+      "tags": [
+        "react",
+        "controlled",
+        "uncontrolled",
+        "component",
+        "problem"
+      ],
+      "imageUrl": "http://doctorakil.com/wp-content/uploads/2018/01/coffee-940x600.jpg",
+      "authorId": 2,
+      "active": true
     }
   ],
   "comments": []

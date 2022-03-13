@@ -4,21 +4,53 @@ import React, { Component } from 'react';
 import { DEFAULT_AUTOR_ID } from '../model/post-model';
 import './PostForm.css';
 
+export const ADD = 0;
+export const EDIT = 1;
+export const EditMode = ['ADD', 'EDIT']
+
+const newPost  = {
+    id: '',
+    title: '',
+    content: '',
+    tags: '',
+    imageUrl: '',
+    authorId: DEFAULT_AUTOR_ID,
+    active: true
+}
 export default  class PostForm extends Component {
-    //   static propTypes = {second: third}
-    state = {
-        id: '',
-        title: '',
-        content: '',
-        tags: '',
-        imageUrl: '',
-        authorId: DEFAULT_AUTOR_ID,
-        active: true
+      static propTypes = {
+          mode: PropTypes.oneOf([ADD, EDIT]),
+          post: PropTypes.shape({
+            id: PropTypes.number,
+            title: PropTypes.string.isRequired,
+            content: PropTypes.string.isRequired,
+            tags:  PropTypes.arrayOf(PropTypes.string).isRequired,
+            imageUrl: PropTypes.string,
+            authorId: PropTypes.number,
+            active: PropTypes.bool
+          }),
+          onSubmitPost: PropTypes.func.isRequired
+        }
+
+    static getDerivedStateFromProps(props, state) {
+        if(state.tags instanceof Array) {
+            return {tags: state.tags.join(', ')}
+        } else {
+            return null;
+        }
     }
+    
+    state = this.props.mode === EDIT ? {...this.props.post} : {...newPost};
 
     handleSubmit = (event) => {
         event.preventDefault();
+        // TODO: validate input
+        this.props.onSubmitPost(Object.assign({}, this.state, {tags: this.state.tags.split(',').map(tag => tag.trim())}))
+    }
 
+    handleReset = (event) => {
+        event.preventDefault();
+        this.setState({...newPost})
     }
 
     handleInputChange = (event) => {
@@ -34,7 +66,7 @@ export default  class PostForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
                 <div  className="row">
                     <div  className="input-field col s12">
                         <input id="id" type="text" disabled value={this.state.id}/>
@@ -50,10 +82,10 @@ export default  class PostForm extends Component {
                 </div>
                 <div  className="row">
                     <div  className="input-field col s12">
+                        <label htmlFor="content">Content</label>
                         <textarea id="content"  className="materialize-textarea" value={this.state.content} onChange={this.handleInputChange}></textarea>
-                        <label htmlFor="content">content</label>
                     </div>
-                    <label htmlFor="email">Email</label>
+
                 </div>
                 <div  className="row">
                     <div  className="input-field col s12">
@@ -80,10 +112,10 @@ export default  class PostForm extends Component {
                     </div>
                 </div>
                 <div  className='PostForm-button-panel'>
-                    <button  className="btn waves-effect waves-light" type="submit" name="action">Submit
+                    <button  className="btn waves-effect waves-light" type="submit" name="submit">Submit
                         <i  className="material-icons right">send</i>
                     </button>
-                    <button  className="btn waves-effect waves-light #ff1744 red accent-3" type="submit" name="action">Reset
+                    <button  className="btn waves-effect waves-light #ff1744 red accent-3" type="reset" name="reset">Reset
                         <i  className="material-icons right">cancel</i>
                     </button>
                 </div>
