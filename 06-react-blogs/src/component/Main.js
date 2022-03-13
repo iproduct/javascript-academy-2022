@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import PostList from './PostList';
 import { TabContainer } from './TabContainer';
 import { TabPanel } from './TabPanel';
+import PostForm from './PostForm';
 
 class Main extends Component {
     state = {
         blogs: [],
         messages: undefined,
-        errors: undefined
+        errors: undefined,
     }
 
     clearMessagesAndErors = () => {
@@ -29,17 +30,16 @@ class Main extends Component {
 
     render() {
         return (
-            <div className="container">
-                <div className="section">
-                    {this.state.messages && <div className="messages">{this.state.messages}</div>}
-                    {this.state.errors && <div className="errors">{this.state.errors}</div>}
-                    <div className="row">
-                        <TabContainer>
-                            <TabPanel id="results" title="All Blogs"> <PostList posts={this.state.blogs} /></TabPanel>
-                            <TabPanel id="favourites" title="Favourite Blogs">Test 2 content ...</TabPanel>
-                            <TabPanel id="settings" title="Blog Settings">Blog settings here ...</TabPanel>
-                        </TabContainer>
-                    </div>
+
+            <div className="section">
+                {this.state.messages && <div className="messages">{this.state.messages}</div>}
+                {this.state.errors && <div className="errors">{this.state.errors}</div>}
+                <div className="row">
+                    <TabContainer>
+                        <TabPanel id="results" title="All Blogs"> <PostList posts={this.state.blogs} /></TabPanel>
+                        <TabPanel id="favourites" title="Favourite Blogs">Test 2 content ...</TabPanel>
+                        <TabPanel id="settings" title="Blog Settings">Blog settings here ...</TabPanel>
+                    </TabContainer>
                 </div>
             </div>
         )
