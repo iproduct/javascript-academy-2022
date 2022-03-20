@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 import PostList from './PostList';
 import { TabContainer } from './TabContainer';
 import { TabPanel } from './TabPanel';
+// import M from 'materialize-css/dist/js/materialize';
 
 class Main extends Component {
+    // componentDidMount() {
+    //     const tabElem = document.querySelector(".tabs");
+    //     console.log(">>>>", tabElem);
+    //     M.Tabs.init(tabElem);
+    // }
     render() {
         return (
             <div className="section">
@@ -19,6 +25,7 @@ class Main extends Component {
         )
     }
 }
+
 
 Main.propTypes = {
     posts: PropTypes.arrayOf(PropTypes.shape({

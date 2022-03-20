@@ -36,10 +36,10 @@ function App() {
     if (postEditMode === ADD) {
       BlogsClient.postNewPost(post)
         .then(created => {
-          setPosts([...posts, post])
+          setPosts([...posts, created])
           setShowPostForm(false);
           clearMessagesAndErors();
-          setMessages(`New Post created successfully: ${created.title}: '${created.title}'`)
+          setMessages(`New Post created successfully: ${created.id}: '${created.title}'`)
         }).catch(err => {
           clearMessagesAndErors();
           setErrors(err);

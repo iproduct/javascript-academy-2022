@@ -3,7 +3,7 @@ import './App.css';
 
 class AppClass extends React.Component {
   textInputRef = React.createRef();
-  // state = {color: "white"};
+  state = {background: "white"};
   constructor(props) {
     super(props);
     // create a ref to store the textInput DOM element
@@ -15,8 +15,8 @@ class AppClass extends React.Component {
     // Note: we're accessing "current" to get the DOM node
     // this.textInput.current.focus();
     this.textInputRef.current.focus();
-    this.textInputRef.current.style.background="yellow";
-    // this.setState({color: "green"})
+    // this.textInputRef.current.style.background="yellow";
+    this.setState({background: "green"})
   }
 
   render() {
@@ -24,7 +24,7 @@ class AppClass extends React.Component {
     // with the `textInput` that we created in the constructor
     return (
       <div>
-        <input type="text" ref={this.textInputRef} />
+        <input type="text" ref={this.textInputRef} style={this.state} />
         <input
           type="button"
           value="Focus the text input"
