@@ -66,7 +66,7 @@ export default  class PostForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="container">
+            <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
                 <div  className="row">
                     <div  className="input-field col s12">
                         <input id="id" type="text" disabled value={this.state.id}/>

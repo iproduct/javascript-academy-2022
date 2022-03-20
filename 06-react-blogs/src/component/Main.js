@@ -1,9 +1,10 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
-import PostList from './PostList';
+import PostList, { CARDS } from './PostList';
 import { TabContainer } from './TabContainer';
 import { TabPanel } from './TabPanel';
 import UserForm from './UserForm';
+import Post from './Post';
 // import M from 'materialize-css/dist/js/materialize';
 
 class Main extends Component {
@@ -17,7 +18,11 @@ class Main extends Component {
             <div className="section">
                 <div className="row">
                     <TabContainer>
-                        <TabPanel id="results" title="All Blogs"> <PostList posts={this.props.posts} /></TabPanel>
+                        <TabPanel id="results" title="All Blogs"> 
+                        <PostList posts={this.props.posts} mode={CARDS} render={
+                            (post, rest) => (<Post key={post.id} post={post} {...rest} />)
+                        }/>
+                        </TabPanel>
                         <TabPanel id="favourites" title="Favourite Blogs">Favs</TabPanel>
                         <TabPanel id="users" title="Users"><UserForm onSubmit={data=>{console.log(data)}}/></TabPanel>
                         <TabPanel id="settings" title="Blog Settings">Blog settings here ...</TabPanel>

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import PostList from './PostList';
-import { TabContainer } from './TabContainer';
-import { TabPanel } from './TabPanel';
-import UserForm from './UserForm';
-import PostForm from './PostForm';
+import PostList, { COLLECTION } from './PostList';
+import { Link, Outlet } from 'react-router-dom';
+import PostCollectionItem from './PostCollectionItem';
 import './PostsMain.css'
-import { Outlet } from 'react-router-dom';
 // import M from 'materialize-css/dist/js/materialize';
 
 class PostsMain extends Component {
@@ -19,8 +16,19 @@ class PostsMain extends Component {
         return (
             <div className="section">
                 <div className="PostMain row">
-                    <PostList posts={this.props.posts} className="col s4" />
-                    <Outlet />
+                    <div className="PostMain-left-column">
+                        <div className="row center">
+                            <Link to="/posts/add" className="PostMain-btn btn-large waves-effect waves-light blue" >
+                                Add New Post
+                            </Link>
+                        </div>
+                        <PostList className="PostList" posts={this.props.posts} mode={COLLECTION} render={
+                            (post, rest) => (<PostCollectionItem key={post.id} post={post} {...rest} />)
+                        } />
+                    </div>
+                    <div className="PostMain-right-column">
+                        <Outlet />
+                    </div>
                 </div>
             </div>
         )
