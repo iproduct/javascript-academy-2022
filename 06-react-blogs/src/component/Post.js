@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Post.css';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
 
 const Post = ({ post }) => {
     return (
@@ -15,7 +17,7 @@ const Post = ({ post }) => {
                 </div>
                 <div className="card-reveal">
                     <span className="card-title grey-text text-darken-4">{post.title}<i className="material-icons right">close</i></span>
-                    <p>{post.content}</p>
+                    <p><ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown></p>
                 </div>
             </div>
         </div>

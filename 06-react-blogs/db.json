@@ -304,6 +304,17 @@
       "imageUrl": "https://cdn.mos.cms.futurecdn.net/sfgpCc8Ba2GFWVLcPmBzcM.jpg",
       "authorId": 2,
       "active": true
+    },
+    {
+      "id": 25,
+      "title": "Markdown Rules",
+      "content": "### Markdown Rules\n\n| Syntax | Description |\n| ----------- | ----------- |\n| Header | Title |\n| Paragraph | Text |\n\n```\n{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"age\": 25\n}\n```\n\n1. First item\n2. Second item\n3. Third item\n\n[title](https://www.example.com)\n\n![alt text](https://www.google.com/url?sa=i&url=https%3A%2F%2Fcss-tricks.com%2Fchoosing-right-markdown-parser%2F&psig=AOvVaw05OlNZGv4_1X0J5K2QFZaz&ust=1647865120473000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCLDAjI7W1PYCFQAAAAAdAAAAABAD)",
+      "tags": [
+        ""
+      ],
+      "imageUrl": "",
+      "authorId": 2,
+      "active": true
     }
   ],
   "comments": []
