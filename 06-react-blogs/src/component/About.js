@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Header = ({ children, actionButtonText, onActionButtonClicked }) => {
+const About = ({ children, actionButtonText, onActionButtonClicked }) => {
   const childrenArray = React.Children.toArray(children);
   console.log(childrenArray);
   return (
@@ -22,9 +22,9 @@ const Header = ({ children, actionButtonText, onActionButtonClicked }) => {
   )
 }
 
-Header.propTypes = {
+About.propTypes = {
   actionButtonText: PropTypes.string.isRequired,
   onActionButtonClicked: PropTypes.func.isRequired
 }
 
-export default Header
+export default About
