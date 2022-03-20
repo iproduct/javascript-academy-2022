@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import BlogsClient from './service/blogs-api-client';
 import Footer from './component/Footer';
-import About from './component/About';
+import DefaultView from './component/DefaultView';
 import Main from './component/Main';
 import Nav from './component/Nav';
 import PostForm, { ADD } from './component/PostForm';
@@ -71,12 +71,16 @@ function App() {
           <Route path="add-post" element={<PostForm onSubmitPost={handleSubmitPost} />} />
           <Route path="add-user" element={<UserForm onSubmit={handleSubmitUser} />} />
           <Route path="about" element={(
-            <About actionButtonText={'Add New Post'}
-              onActionButtonClicked={() => {}}>
+            <DefaultView actionButtonText={'Add New Post'} actionLinkTo="/add-post">
               <div>A modern responsive front-end framework based on Material Design</div>
               <header>My Blogs Demo</header>
               <span className="button-text">Add New Blog</span>
-            </About>)} />
+            </DefaultView>)} />
+          <Route path="*" element={(
+            <DefaultView actionButtonText={'Go to All Posts'} actionLinkTo="/">
+              <header>Page not found</header>
+              <div>This is not the page you are looking for :)</div>
+            </DefaultView>)} />
         </Routes>
       </div>
       <Footer />

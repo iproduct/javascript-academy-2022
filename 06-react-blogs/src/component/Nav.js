@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
+import './Nav.css'
 
-const activeClassName = 'active';
+const activeClassName = 'Nav-active';
 
 const Nav = props => {
   return (
