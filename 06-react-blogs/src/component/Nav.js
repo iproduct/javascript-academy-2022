@@ -16,8 +16,17 @@ const Nav = props => {
               isActive ? activeClassName : undefined
             }
           >
-            All Blog Posts
+            View Blog Posts
           </NavLink></li>
+          <li><NavLink
+            to="/posts"
+            className={({ isActive }) =>
+              isActive ? activeClassName : undefined
+            }
+          >
+            Manage Posts
+          </NavLink></li>
+
           <li><NavLink
             to="/add-post"
             className={({ isActive }) =>

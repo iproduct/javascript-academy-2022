@@ -9,6 +9,9 @@ import PostForm, { ADD } from './component/PostForm';
 import TimedMessages, { ERROR } from './component/TimedMessages';
 import { Route, Routes } from 'react-router-dom';
 import UserForm from './component/UserForm';
+import PostsMain from './component/PostsMain';
+import Post from './component/Post';
+import PostDetail from './component/PostDetail';
 
 
 function App() {
@@ -68,9 +71,13 @@ function App() {
         <TimedMessages messages={errors} type={ERROR} timeout={10000} key={errors} />
         <Routes>
           <Route path="/" element={<Main posts={posts} />} />
-          <Route path="add-post" element={<PostForm onSubmitPost={handleSubmitPost} />} />
-          <Route path="add-user" element={<UserForm onSubmit={handleSubmitUser} />} />
-          <Route path="about" element={(
+          <Route path="/posts" element={<PostsMain posts={posts} onSubmit={handleSubmitPost} />}>
+            <Route path="add" element={<PostForm onSubmit={handleSubmitPost} />} />
+            <Route path=":postId" element={<PostDetail />} />
+          </Route>
+          <Route path="/add-post" element={<PostForm onSubmit={handleSubmitPost} />} />
+          <Route path="/add-user" element={<UserForm onSubmit={handleSubmitUser} />} />
+          <Route path="/about" element={(
             <DefaultView actionButtonText={'Add New Post'} actionLinkTo="/add-post">
               <div>A modern responsive front-end framework based on Material Design</div>
               <header>My Blogs Demo</header>

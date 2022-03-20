@@ -29,7 +29,7 @@ export default  class PostForm extends Component {
             authorId: PropTypes.number,
             active: PropTypes.bool
           }),
-          onSubmitPost: PropTypes.func.isRequired
+          onSubmit: PropTypes.func.isRequired
         }
 
     static getDerivedStateFromProps(props, state) {
@@ -45,7 +45,7 @@ export default  class PostForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         // TODO: validate input
-        this.props.onSubmitPost(Object.assign({}, this.state, {tags: this.state.tags.split(',').map(tag => tag.trim())}))
+        this.props.onSubmit(Object.assign({}, this.state, {tags: this.state.tags.split(',').map(tag => tag.trim())}))
     }
 
     handleReset = (event) => {
@@ -66,7 +66,7 @@ export default  class PostForm extends Component {
 
     render() {
         return (
-            <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
+            <form onSubmit={this.handleSubmit} onReset={this.handleReset} className="container">
                 <div  className="row">
                     <div  className="input-field col s12">
                         <input id="id" type="text" disabled value={this.state.id}/>

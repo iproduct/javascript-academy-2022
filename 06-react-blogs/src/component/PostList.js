@@ -2,7 +2,7 @@ import Post from "./Post";
 
 const PostList = ({ posts, ...rest }) => {
     return (
-        <div className="PostList-items">
+        <div className="PostList-items container">
             {
                 posts
                     // .filter(post => post.status === filter || filter === ALL_STATUSES)
