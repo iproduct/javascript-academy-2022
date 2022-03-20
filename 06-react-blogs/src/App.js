@@ -7,12 +7,13 @@ import Main from './component/Main';
 import Nav from './component/Nav';
 import PostForm, { ADD } from './component/PostForm';
 import TimedMessages, { ERROR } from './component/TimedMessages';
+import { Route, Routes } from 'react-router-dom';
+import UserForm from './component/UserForm';
 
 
 function App() {
-  const [showPostForm, setShowPostForm] = useState(false);
-  const [postEditMode, setPostEditMode] = useState(ADD);
   const [posts, setPosts] = useState([]);
+  const [users, setUsers] = useState([]);
   const [messages, setMessages] = useState();
   const [errors, setErrors] = useState();
 
@@ -33,13 +34,26 @@ function App() {
   }
 
   function handleSubmitPost(post) {
-    if (postEditMode === ADD) {
+    if (!post.id) {
       BlogsClient.postNewPost(post)
         .then(created => {
           setPosts([...posts, created])
-          setShowPostForm(false);
           clearMessagesAndErors();
           setMessages(`New Post created successfully: ${created.id}: '${created.title}'`)
+        }).catch(err => {
+          clearMessagesAndErors();
+          setErrors(err);
+        })
+    }
+  }
+
+  function handleSubmitUser(user) {
+    if (!user.id) {
+      BlogsClient.postNewPost(user)
+        .then(created => {
+          setPosts([...users, created])
+          clearMessagesAndErors();
+          setMessages(`New User created successfully: ${created.id}: '${created.title}'`)
         }).catch(err => {
           clearMessagesAndErors();
           setErrors(err);
@@ -49,18 +63,21 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Header actionButtonText={showPostForm ? 'Back to Posts' : 'Add New Post'}
-        onActionButtonClicked={() => setShowPostForm(!showPostForm)}>
-        <div>A modern responsive front-end framework based on Material Design</div>
-        <header>My Blogs Demo</header>
-        <span className="button-text">Add New Blog</span>
-      </Header>
       <div className="container">
         <TimedMessages messages={messages} timeout={10000} key={messages} />
         <TimedMessages messages={errors} type={ERROR} timeout={10000} key={errors} />
-        {showPostForm ?
-          <PostForm mode={postEditMode} onSubmitPost={handleSubmitPost} /> :
-          <Main posts={posts} />}
+        <Routes>
+          <Route path="/" element={<Main posts={posts} />} />
+          <Route path="add-post" element={<PostForm onSubmitPost={handleSubmitPost} />} />
+          <Route path="add-user" element={<UserForm onSubmit={handleSubmitUser} />} />
+          <Route path="about" element={(
+            <Header actionButtonText={'Add New Post'}
+              onActionButtonClicked={() => {}}>
+              <div>A modern responsive front-end framework based on Material Design</div>
+              <header>My Blogs Demo</header>
+              <span className="button-text">Add New Blog</span>
+            </Header>)} />
+        </Routes>
       </div>
       <Footer />
     </div>

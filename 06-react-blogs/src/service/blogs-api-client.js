@@ -25,7 +25,29 @@ class BlogsApiClient {
             method: 'DELETE',
         }));
     }
+
+    // Users API client
+    async fetchUsers() {
+        return this.handleResponse(async () => fetch(BLOGS_API_BASE_URL + '/users'));
+    }
+
+    async postNewUser(post) {
+        return this.handleResponse(async () => fetch(BLOGS_API_BASE_URL + '/users',{
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            method: 'POST',
+            body: JSON.stringify(post)
+        }));
+    }
     
+    async deleteUser(userId) {
+        return this.handleResponse(async () => fetch(`${BLOGS_API_BASE_URL}/users/${userId}`, {
+            method: 'DELETE',
+        }));
+    }
+    
+    // Error handling utils
     async handleResponse(asyncRequestFunc){
         try {
             const resp = await asyncRequestFunc();
