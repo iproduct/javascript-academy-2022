@@ -17,7 +17,7 @@ const Post = ({ post }) => {
                 </div>
                 <div className="card-reveal">
                     <span className="card-title grey-text text-darken-4">{post.title}<i className="material-icons right">close</i></span>
-                    <p><ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown></p>
+                    <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
                 </div>
             </div>
         </div>
