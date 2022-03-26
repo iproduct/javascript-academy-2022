@@ -7,7 +7,7 @@ import Main from './component/Main';
 import Nav from './component/Nav';
 import PostForm, { ADD } from './component/PostForm';
 import TimedMessages, { ERROR } from './component/TimedMessages';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import UserForm from './component/UserForm';
 import PostsMain from './component/PostsMain';
 import Post from './component/Post';
@@ -17,6 +17,7 @@ import PostDetail from './component/PostDetail';
 function App() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
   const [messages, setMessages] = useState();
   const [errors, setErrors] = useState();
 
@@ -43,6 +44,7 @@ function App() {
           setPosts([...posts, created])
           clearMessagesAndErors();
           setMessages(`New Post created successfully: ${created.id}: '${created.title}'`)
+          navigate(`/posts/${created.id}`, { replace: true })
         }).catch(err => {
           clearMessagesAndErors();
           setErrors(err);

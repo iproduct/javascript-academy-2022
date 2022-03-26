@@ -10,6 +10,10 @@ class BlogsApiClient {
         return this.handleResponse(async () => fetch(BLOGS_API_BASE_URL + '/posts'));
     }
 
+    async fetchPostById(postId) {
+        return this.handleResponse(async () => fetch(`${BLOGS_API_BASE_URL}/posts/${postId}`));
+    }
+
     async postNewPost(post) {
         return this.handleResponse(async () => fetch(BLOGS_API_BASE_URL + '/posts',{
             headers:{

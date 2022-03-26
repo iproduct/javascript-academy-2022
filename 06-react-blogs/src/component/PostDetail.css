@@ -1,3 +1,8 @@
 .PostDetail-card {
     margin: 5px;
 }
+.card .card-image img.Post-image {
+    height: 500px;
+    max-width: 100%;
+    width: auto;
+}

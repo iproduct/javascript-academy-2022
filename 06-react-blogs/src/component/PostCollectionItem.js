@@ -10,8 +10,8 @@ const PostCollectionItem = ({ post }) => {
             <div className="PostCollectionItem collection-item avatar hoverable">
                 <img src={post.imageUrl ? post.imageUrl : "images/office.jpg"} alt="Blog post" className="PostCollectionItem-img circle" />
                 <span className="title">{post.title}</span>
-                <p><a href="#">{post.tags.join(', ')}</a></p>
-                <a href={"/posts/" + post.id} className="secondary-content"><i className="material-icons right">send</i></a>
+                <p>{post.tags.join(', ')}</p>
+                <button className="secondary-content"><i className="material-icons right">send</i></button>
             </div>
         </NavLink>
     )

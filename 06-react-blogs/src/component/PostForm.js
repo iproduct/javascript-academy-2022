@@ -112,10 +112,13 @@ export default  class PostForm extends Component {
                     </div>
                 </div>
                 <div  className='PostForm-button-panel'>
-                    <button  className="btn waves-effect waves-light" type="submit" name="submit">Submit
+                <button  className="btn waves-effect waves-light" type="submit" name="submit">Submit
                         <i  className="material-icons right">send</i>
                     </button>
-                    <button  className="btn waves-effect waves-light #ff1744 red accent-3" type="reset" name="reset">Reset
+                    <button  className="btn waves-effect waves-light #ff1744 orange accent-2" type="reset" name="reset">Reset
+                        <i  className="material-icons right">autorenew</i>
+                    </button>
+                    <button  className="btn waves-effect waves-light #ff1744 red accent-3" type="reset" name="reset">Cancel
                         <i  className="material-icons right">cancel</i>
                     </button>
                 </div>
