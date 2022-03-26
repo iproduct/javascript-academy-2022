@@ -18,7 +18,7 @@ export default function App() {
         <h1>Auth Example</h1>
         <Routes>
           <Route element={<Layout />}>
-            <Route path="/" element={<PublicPage />} />
+            <Route index element={<PublicPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route
               path="/protected"

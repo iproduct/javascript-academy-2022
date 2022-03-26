@@ -1,5 +1,5 @@
 import * as React from "react";
-import {Suspense} from "react";
+import { Suspense } from "react";
 import { Routes, Route, Outlet, Link } from "react-router-dom";
 
 const About = React.lazy(() => import("./pages/About"));
@@ -56,6 +56,16 @@ export default function App() {
           />
           <Route path="*" element={<NoMatch />} />
         </Route>
+      </Routes>
+      <Routes>
+        <Route
+          path = "/*"
+          element={
+            <React.Suspense fallback={<>Loading...</>}>
+              <About />
+            </React.Suspense>
+          }
+        />
       </Routes>
     </div>
   );
