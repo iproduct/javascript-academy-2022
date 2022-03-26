@@ -23,8 +23,19 @@ class BlogsApiClient {
             body: JSON.stringify(post)
         }));
     }
+
+    async editPost(post) {
+        return this.handleResponse(async () => fetch(`${BLOGS_API_BASE_URL}/posts/${post.id}`,{
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            method: 'PUT',
+            body: JSON.stringify(post)
+        }));
+    }
+
     
-    async deletePost(postId) {
+    async deletePostById(postId) {
         return this.handleResponse(async () => fetch(`${BLOGS_API_BASE_URL}/posts/${postId}`, {
             method: 'DELETE',
         }));
@@ -45,7 +56,7 @@ class BlogsApiClient {
         }));
     }
     
-    async deleteUser(userId) {
+    async deleteUserById(userId) {
         return this.handleResponse(async () => fetch(`${BLOGS_API_BASE_URL}/users/${userId}`, {
             method: 'DELETE',
         }));

@@ -38,7 +38,7 @@ function App() {
   }
 
   function handleSubmitPost(post) {
-    if (!post.id) {
+    if (!post.id) { // add post
       BlogsClient.postNewPost(post)
         .then(created => {
           setPosts([...posts, created])
@@ -49,8 +49,33 @@ function App() {
           clearMessagesAndErors();
           setErrors(err);
         })
+    } else { // edit post
+      BlogsClient.editPost(post)
+        .then(updated => {
+          setPosts([...posts, updated])
+          clearMessagesAndErors();
+          setMessages(`New Post updated successfully: ${updated.id}: '${updated.title}'`)
+          navigate(`/posts/${updated.id}`, { replace: true })
+        }).catch(err => {
+          clearMessagesAndErors();
+          setErrors(err);
+        })
     }
   }
+  function handleDeletePost(toDelete) {
+    BlogsClient.deletePostById(toDelete.id)
+      .then(() => {
+        setPosts(posts.filter(p => p.id !== toDelete.id))
+        clearMessagesAndErors();
+        setMessages(`New Post deleted successfully: ${toDelete.id}: '${toDelete.title}'`)
+        navigate(`/posts`)
+      }).catch(err => {
+        clearMessagesAndErors();
+        setErrors(err);
+      })
+  }
+
+  const goBack = () => navigate(-1);
 
   function handleSubmitUser(user) {
     if (!user.id) {
@@ -73,8 +98,9 @@ function App() {
         <TimedMessages messages={errors} type={ERROR} timeout={10000} key={errors} />
         <Routes>
           <Route path="/" element={<Main posts={posts} />} />
-          <Route path="/posts" element={<PostsMain posts={posts} onSubmit={handleSubmitPost} />}>
-            <Route path="add" element={<PostForm onSubmit={handleSubmitPost}  onCancel={() => navigate(-1)}/>} />
+          <Route path="/posts" element={<PostsMain posts={posts} onDelete={handleDeletePost}/>}>
+            <Route path="add" element={<PostForm onSubmit={handleSubmitPost} onCancel={goBack} />} />
+            <Route path="edit/:postId" element={<PostForm onSubmit={handleSubmitPost} onCancel={goBack} />} />
             <Route path=":postId" element={<PostDetail />} />
           </Route>
           <Route path="/add-post" element={<PostForm onSubmit={handleSubmitPost} />} />

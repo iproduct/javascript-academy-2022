@@ -16,7 +16,7 @@ function PostsMain({ posts, ...rest }) {
                             Add New Post
                         </Link>
                     </div>
-                    <PostList className="PostList" posts={posts} mode={COLLECTION} render={
+                    <PostList className="PostList" posts={posts} mode={COLLECTION} {...rest} render={
                         (post, rest) => (<PostCollectionItem key={post.id} post={post} {...rest} />)
                     } />
                 </div>
