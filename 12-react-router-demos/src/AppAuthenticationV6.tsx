@@ -144,10 +144,10 @@ function RequireAuth({ children }: { children: JSX.Element }) {
 
 function LoginPage() {
     let navigate = useNavigate();
-    let location = useLocation();
+    let location: any = useLocation();
     let auth = useAuth();
 
-    let from = location.state?.from?.pathname || "/";
+    let from = location?.state?.from?.pathname || "/";
 
     function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
