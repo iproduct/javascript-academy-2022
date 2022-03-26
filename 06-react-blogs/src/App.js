@@ -17,9 +17,9 @@ import PostDetail from './component/PostDetail';
 function App() {
   const [posts, setPosts] = useState([]);
   const [users, setUsers] = useState([]);
-  const navigate = useNavigate();
   const [messages, setMessages] = useState();
   const [errors, setErrors] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => BlogsClient.fetchPosts()
     .then(results => {
@@ -74,7 +74,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main posts={posts} />} />
           <Route path="/posts" element={<PostsMain posts={posts} onSubmit={handleSubmitPost} />}>
-            <Route path="add" element={<PostForm onSubmit={handleSubmitPost} />} />
+            <Route path="add" element={<PostForm onSubmit={handleSubmitPost}  onCancel={() => navigate(-1)}/>} />
             <Route path=":postId" element={<PostDetail />} />
           </Route>
           <Route path="/add-post" element={<PostForm onSubmit={handleSubmitPost} />} />

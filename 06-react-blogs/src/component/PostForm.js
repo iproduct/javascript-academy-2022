@@ -29,7 +29,8 @@ export default  class PostForm extends Component {
             authorId: PropTypes.number,
             active: PropTypes.bool
           }),
-          onSubmit: PropTypes.func.isRequired
+          onSubmit: PropTypes.func.isRequired,
+          onCancel: PropTypes.func.isRequired
         }
 
     static getDerivedStateFromProps(props, state) {
@@ -118,7 +119,8 @@ export default  class PostForm extends Component {
                     <button  className="btn waves-effect waves-light #ff1744 orange accent-2" type="reset" name="reset">Reset
                         <i  className="material-icons right">autorenew</i>
                     </button>
-                    <button  className="btn waves-effect waves-light #ff1744 red accent-3" type="reset" name="reset">Cancel
+                    <button  className="btn waves-effect waves-light #ff1744 red accent-3" type="button" name="cancel"
+                        onClick={this.props.onCancel}>Cancel
                         <i  className="material-icons right">cancel</i>
                     </button>
                 </div>

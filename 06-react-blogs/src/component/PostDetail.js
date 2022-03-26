@@ -7,7 +7,7 @@ import './PostDetail.css';
 import blogsApiClient from '../service/blogs-api-client';
 import {Post} from '../model/post-model';
 
-const PostDetail = ({onMessage, onError}) => {
+const PostDetail = ({onError}) => {
     let { postId } = useParams();
     const [post, setPost] = useState(new Post())
     useEffect(() => {blogsApiClient.fetchPostById(postId)
@@ -18,7 +18,7 @@ const PostDetail = ({onMessage, onError}) => {
         <div className="PostDetail-card-wrapper col s12 m12">
             <div className="PostDetail-card card hoverable">
                 <div className="card-image waves-effect waves-block waves-light">
-                    <img className="Post-image activator responsive-img" src={post.imageUrl ? post.imageUrl : "images/office.jpg"} alt="Blog" />
+                    <img className="PostDetail-image activator responsive-img" src={post.imageUrl ? post.imageUrl : "images/office.jpg"} alt="Blog" />
                 </div>
                 <div className="card-content">
                     <span className="card-title activator grey-text text-darken-4">{post.title}<i className="material-icons right">more_vert</i></span>
