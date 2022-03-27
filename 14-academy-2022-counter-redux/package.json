@@ -1,0 +1,46 @@
+{
+  "name": "14-academy-2022-counter-redux",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.3",
+    "react-scripts": "5.0.0",
+    "react-hook-form": "^7.28.1",
+    "react-markdown": "^8.0.1",
+    "react-router-dom": "^6.2.2",
+    "materialize-css": "^1.0.0",
+    "remark-gfm": "^3.0.1",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "api": "json-server db.json --port 8080 --routes routes.json",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
