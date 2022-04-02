@@ -7,12 +7,13 @@
   "author": "Trayan Iliev",
   "license": "Apache-2.0",
   "scripts": {
-    "start": "nodemon ./http1.js localhost 3000"
+    "start": "nodemon --watch src src/server.js localhost 5000"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "socket.io": "^4.4.1"
   }
 }

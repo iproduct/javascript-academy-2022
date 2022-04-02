@@ -66,6 +66,8 @@ fs.readFile(`${__dirname}/${DB_FILENAME}`).then(data => {
           await fs.writeFile(DB_FILENAME, JSON.stringify(db, null, 4));
           res.writeHead(200, { 'Content-Type': 'application/json' })
           res.end(JSON.stringify(newPost));
+        }).on('error', (err) => {
+          console.error(err);
         })
       }
     }
