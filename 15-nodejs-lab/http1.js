@@ -38,12 +38,15 @@ fs.readFile(`${__dirname}/db.json`).then(data => {
     // res.end(JSON.stringify(countries))
     const pathname = url.parse(req.url, true).pathname
     if (req.method === 'GET')
-      if (pathname.slice(1) === 'api/posts') {
-        res.writeHead(200, { 'Content-Type': 'application/json' })
-        res.end(JSON.stringify(db.posts));
-      } else {
-        res.writeHead(404, {})
-        res.end();
+    if (pathname.slice(1) === 'api/posts') {
+      res.writeHead(200, { 'Content-Type': 'application/json' })
+      res.end(JSON.stringify(db.posts));
+    } else if (pathname.slice(1) === 'api/users') {
+      res.writeHead(200, { 'Content-Type': 'application/json' })
+      res.end(JSON.stringify(db.users));
+    } else {
+        res.writeHead(404, { 'Content-Type': 'text/plain' })
+        res.end("Not found");
       }
   });
 
