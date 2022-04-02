@@ -1,5 +1,6 @@
 const express = require('express');
 const http = require('http');
+const path = require('path');``
 const { Server } = require("socket.io");
 
 
@@ -8,17 +9,20 @@ const PORT = 5000;
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server);
+const io = new Server(server, {transports:	['websocket', 'polling']});
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
-});
+app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', function(req, res) {
+    res.sendFile(path.resolve(__dirname, '../public/index.html'));
+})
 
 io.on('connection', function(socket) {
+    socket.join('room1');
     console.log("Client connected: " + socket.id);
     socket.on('chat message', function(msg) {
         console.log('Message received: ' + msg);
-        io.of("/").emit('chat message', msg);
+        io.of("/").to("room1").emit('chat message', msg);
     })
 })
 
