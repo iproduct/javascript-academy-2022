@@ -11,7 +11,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {transports:	['websocket', 'polling']});
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function(req, res) {
     res.sendFile(path.resolve(__dirname, '../public/index.html'));
