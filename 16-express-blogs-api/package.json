@@ -1,0 +1,25 @@
+{
+  "name": "15-nodejs-lab",
+  "version": "1.0.0",
+  "description": "Nodejs intro",
+  "main": "index.js",
+  "repository": "https://github.com/iproduct/javascript-academy-2022",
+  "author": "Trayan Iliev",
+  "license": "Apache-2.0",
+  "scripts": {
+    "start": "nodemon --watch src src/server.js localhost 5000"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "indicative": "^7.4.4",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^4.4.1",
+    "morgan": "^1.10.0",
+    "socket.io": "^4.4.1"
+  }
+}
