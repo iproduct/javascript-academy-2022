@@ -1,9 +1,9 @@
-GET http://localhost:3000/api/posts HTTP/1.1
+GET http://localhost:5000/api/posts HTTP/1.1
 Accept: "application/json"
 
 ###
 
-POST http://localhost:3000/api/posts HTTP/1.1
+POST http://localhost:5000/api/posts HTTP/1.1
 content-type: application/json
 
 {
@@ -20,6 +20,44 @@ content-type: application/json
     "active": true
 }
 
+###
+
+GET http://localhost:5000/api/users HTTP/1.1
+Accept: "application/json"
+
+###
+
+DELETE http://localhost:5000/api/users/6249c94a0aa553deeb1d9df1 HTTP/1.1
+Accept: "application/json"
+
+###
+POST http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Reader",
+    "password": "admin123",
+    "firstName": "Default",
+    "lastName": "Reader",
+    "role": "READER",
+    "active": true,
+    "imageUrl": "https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&w=1000&q=80"
+}
+
+###
+PUT http://localhost:5000/api/users/6249c88304ccb8350742b2fb HTTP/1.1
+content-type: application/json
+
+{
+    "id":"6249c88304ccb8350742b2fb",
+    "username":"admin",
+    "password":"admin456",
+    "firstName":"Admin",
+    "lastName":"Admin",
+    "role":"ADMIN",
+    "active":true,
+    "imageUrl":"https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwcm9maWxlLXBhZ2V8MXx8fGVufDB8fHx8&w=1000&q=80"
+}
 ###
 
 GET http://localhost:5000/admin/user/12 HTTP/1.1
