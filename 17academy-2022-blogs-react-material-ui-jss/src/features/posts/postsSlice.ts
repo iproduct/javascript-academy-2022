@@ -198,7 +198,6 @@ export const updatePost = (
   ): AppThunk => async (dispatch, getState) => {
   try {
     dispatch(updatePostStart(post));
-    const auth = getState().auth;
     const authToken = getState().auth.token;
     const created = await PostService.updatePost(post, authToken);
     dispatch(updatePostSuccess(created));

@@ -63,11 +63,15 @@ export const PostForm: FC<Props> = () => {
         return undefined;
     });
 
+    const authorId = useSelector((state: RootState) => {
+        return state.auth.loggedUser?.id;
+    });
+
     const initialValues: MyFormValues = {
         id: post?.id || '',
         title: post?.title || '',
         text: post?.text || '',
-        authorId: post?.authorId || '',
+        authorId: post?.authorId || authorId || '',
         imageUrl: post?.imageUrl || '',
         categories: post?.categories?.join(', ') || '',
         keywords: post?.keywords.join(', ') || ''
