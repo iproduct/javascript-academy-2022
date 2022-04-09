@@ -22,7 +22,7 @@ function verifyToken(req, res, next) {
   const token = segments[1].trim();
   console.log(`Token: ${token}`);
 
-  jwt.verify(token, config.secret, function (error, decoded) {
+  jwt.verify(token, process.env.BLOGS_API_SECRET, function (error, decoded) {
     if (error) next({ status: 401, message: `Failed to authenticate token.`, error });
     else {
       // if everything good, save to request for use in other routes

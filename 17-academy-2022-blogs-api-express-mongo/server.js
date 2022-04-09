@@ -10,17 +10,16 @@ const url = 'mongodb://localhost:27017';
 const db_name = 'blogs2022';
 
 const app = express();
-const port = 5000;
+const port = 9000;
 
 
 const corsOpts = {
     origin: 'http://localhost:3000'
 }
 
-if(!process.env.BLOG_API_SECRET) {
+if(!process.env.BLOGS_API_SECRET) {
     console.log("Error: BLOGS_API_SECRET environment variable should be set");
 }
-console.log(process.env.BLOG_API_SECRET)
 
 // apply express middleware
 app.use(cors(corsOpts))

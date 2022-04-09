@@ -12,7 +12,7 @@ const router = express.Router();
 router.get('/', async(req, res) => {
     try{
         const posts = await req.app.locals.db.collection('posts').find().toArray();
-        res.json(posts.map(p => replaceId(p)));
+        res.json(posts.map(p => replace_id(p)));
     } catch(err) {
         sendErrorResponse(req, res, 500, `Server error: ${err.message}`, err);
     }
@@ -64,7 +64,7 @@ router.post('/', function(req, res) {
     });
 });
 
-router.put('/:id', verifyToken, verifyRole(['Admin']), async (req, res) => {
+router.put('/:id', verifyToken, verifyRole(['AUTHOR','ADMIN']), async (req, res) => {
     const old = await req.app.locals.db.collection('posts').findOne({ _id: new ObjectID(req.params.id) });
     if (!old) {
         sendErrorResponse(req, res, 404, `Post with ID=${req.params.id} does not exist`);
@@ -91,7 +91,6 @@ router.put('/:id', verifyToken, verifyRole(['Admin']), async (req, res) => {
         try {
             r = await req.app.locals.db.collection('posts').updateOne({ _id: new ObjectID(req.params.id) }, { $set: post });
             if (r.result.ok) {
-                replace_id(post);
                 console.log(`Updated post: ${JSON.stringify(post)}`);
                 if (r.modifiedCount === 0) {
                     console.log(`The old and the new posts are the same.`);

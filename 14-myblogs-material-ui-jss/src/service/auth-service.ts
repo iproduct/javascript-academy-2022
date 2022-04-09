@@ -21,7 +21,7 @@ import { Role } from '../model/user.model';
 // import { Role, User } from '../model/user.model';
 // import { handleErrorStausCodes } from './service-utils';
 
-export const API_BASE = 'http://localhost:9001/api';
+export const API_BASE = 'http://localhost:9000/api';
 
 class AuthService {
     constructor(private apiUrl: string) {}

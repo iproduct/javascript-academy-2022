@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
             }
             replace_id(user);
             const token = jwt.sign({id: user.id}, process.env.BLOGS_API_SECRET, {
-                expiresIn: 86400 //expires in 24 h
+                expiresIn: 1800 //expires in 30 minutes
             });
             delete user.password;
             res.status(200).json({auth: true, token, user});
@@ -55,10 +55,13 @@ router.post('/register', async (req, res) => {
             firstName: 'required|string|min:2',
             lastName: 'required|string|min:2',
             username: 'required|string|min:5',
+            email: 'required|email',
             password: 'required|string|min:6',
-            imageUrl: 'url'
+            role: 'required|string|in:AUTHOR,ADMIN',
+            imageUrl: 'url',
+            active: 'required:boolean'
         });
-        user.role = 'Author';
+        user.role = 'AUTHOR';
         const salt = bcrypt.genSaltSync(10);
         user.password = await bcrypt.hash(user.password, salt);
         try {

@@ -9,7 +9,7 @@
  */
 
 const mongodb = require('mongodb');
-const replaceId = require('./utils').replace_id;
+const replace_id = require('./utils').replace_id;
 
 module.exports = function verifyRoleOrSelf(roles) {
   return function (req, res, next) {
@@ -20,13 +20,13 @@ module.exports = function verifyRoleOrSelf(roles) {
     else {
       db.collection('users').findOne({ _id: new mongodb.ObjectID(userId) }, function (error, user) {
         if (error) next({ status: 500, message: `Server error.`, error }); //Error
-        else if (!user) next({ status: 404, message: `User not found.` }); //Error
+        else if (!user) next({ status: 401, message: `Invalid token.` }); //Error
         else {
             if ( roles.findIndex(r => r === user.role) < 0 ) 
                 next({ status: 403, message: `Not enough privilegies for this operation.` }); //Error
             else {
                 delete user.password;
-                replaceId(user);
+                replace_id(user);
                 // if everything good, save user to request for use in other routes
                 req.user = user;
                 next();
