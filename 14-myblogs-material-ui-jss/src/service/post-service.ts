@@ -23,7 +23,7 @@ import { handleErrorStausCodes } from './service-utils';
 export const API_BASE = 'http://localhost:9000/api';
 
 class PostService {
-    constructor(private apiUrl: string) { }
+    constructor(private apiUrl: string) {}
 
     async getAllPosts() {
         const resp = await fetch(`${this.apiUrl}/posts`);
@@ -36,29 +36,23 @@ class PostService {
     }
 
     async createNewPost(post: Post, authToken: string | undefined) {
-        const headers: { [key: string]: string } = {
-            'Content-Type': 'application/json'
-        }
-        if (authToken) {
-            headers['Authorization'] = `Bearer ${authToken}`;
-        }
         const resp = await fetch(`${this.apiUrl}/posts`, {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${authToken || ''}`
-            },
+        },
             body: JSON.stringify(post),
         });
         return handleErrorStausCodes<Post>(resp);
     }
 
     async updatePost(post: Post) {
-        const resp = await fetch(`${this.apiUrl}/posts/${post._id}`, {
+        const resp = await fetch(`${this.apiUrl}/posts/${post.id}`, {
             method: 'PUT',
             mode: 'cors',
-            headers: { 'Content-Type': 'application/json' },
+            headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(post),
         });
         return handleErrorStausCodes<Post>(resp);

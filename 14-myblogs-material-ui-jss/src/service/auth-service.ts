@@ -18,36 +18,35 @@
 
 import { Credentials, LoggedUser } from '../model/auth';
 import { Role } from '../model/user.model';
-import { handleErrorStausCodes } from './service-utils';
 // import { Role, User } from '../model/user.model';
 // import { handleErrorStausCodes } from './service-utils';
 
-export const API_BASE = 'http://localhost:9000/api';
+export const API_BASE = 'http://localhost:9001/api';
 
 class AuthService {
     constructor(private apiUrl: string) {}
 
     async login(credentials: Credentials): Promise<LoggedUser> {
-        const resp = await fetch(`${this.apiUrl}/auth/login`, {
-            method: 'POST',
-            mode: 'cors',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(credentials),
-        });
-        return handleErrorStausCodes<LoggedUser>(resp);
-        // return {
-        //     user:{
-        //         "firstName": "Trayan",
-        //         "lastName": "Iliev",
-        //         "username": "admin@gmail.com",                
-        //         "email": "admin@gmail.com",
-        //         "password": "admin123",
-        //         "imageUrl": "https://avatars2.githubusercontent.com/u/8014435?s=460&u=b71421722a561314935ee12ff33d49ecd0518045&v=4",
-        //         "roles": [Role.ADMIN],
-        //         "id": "5f8079fb3173be7c6c59db1e"
-        //       }, 
-        //     token: "123456789"
-        // }
+        // const resp = await fetch(`${this.apiUrl}/auth/login`, {
+        //     method: 'POST',
+        //     mode: 'cors',
+        //     headers: {'Content-Type': 'application/json'},
+        //     body: JSON.stringify(credentials),
+        // });
+        // return handleErrorStausCodes<LoggedUser>(resp);
+        return {
+            user:{
+                "firstName": "Trayan",
+                "lastName": "Iliev",
+                "username": "admin@gmail.com",                
+                "email": "admin@gmail.com",
+                "password": "admin123",
+                "imageUrl": "https://avatars2.githubusercontent.com/u/8014435?s=460&u=b71421722a561314935ee12ff33d49ecd0518045&v=4",
+                "roles": [Role.ADMIN],
+                "id": "5f8079fb3173be7c6c59db1e"
+              }, 
+            token: "123456789"
+        }
     }
 
 }
