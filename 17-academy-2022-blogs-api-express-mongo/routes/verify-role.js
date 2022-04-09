@@ -9,7 +9,7 @@
  */
 
 const mongodb = require('mongodb');
-const replaceId = require('./utils').replaceId;
+const replaceId = require('./utils').replace_id;
 
 module.exports = function verifyRoleOrSelf(roles) {
   return function (req, res, next) {

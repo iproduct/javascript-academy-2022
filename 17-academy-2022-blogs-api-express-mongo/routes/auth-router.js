@@ -1,11 +1,11 @@
 const express = require('express');
 const sendErrorResponse = require('./utils').sendErrorResponse;
-const replaceId = require('./utils').replaceId;
+const replace_id = require('./utils').replace_id;
 const ObjectID = require('mongodb').ObjectID;
 const indicative = require('indicative');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const secret = require('../config/secret').secret;
+// const secret = require('../config/secret').secret;
 
 const router = express.Router();
 
@@ -15,7 +15,7 @@ router.post('/login', async (req, res) => {
     const credentials = req.body;
     try {
         await indicative.validator.validate(credentials, {
-            username: 'required|email',
+            username: 'required|string|min:5',
             password: 'required|string|min:6'
         });
         try {
@@ -24,13 +24,13 @@ router.post('/login', async (req, res) => {
                 sendErrorResponse(req, res, 404, `User with Username=${credentials.username} does not exist.`);
                 return;
             }
-            const passIsValid = bcrypt.compareSync(credentials.password, user.password);
+            const passIsValid = await bcrypt.compare(credentials.password, user.password);
             if(!passIsValid) {
                 sendErrorResponse(req, res, 401, `Username or password is incorrect.`);
                 return;
             }
-            replaceId(user);
-            const token = jwt.sign({id: user.id}, secret, {
+            replace_id(user);
+            const token = jwt.sign({id: user.id}, process.env.BLOGS_API_SECRET, {
                 expiresIn: 86400 //expires in 24 h
             });
             delete user.password;
@@ -54,13 +54,13 @@ router.post('/register', async (req, res) => {
         await indicative.validator.validate(user, {
             firstName: 'required|string|min:2',
             lastName: 'required|string|min:2',
-            username: 'required|email',
+            username: 'required|string|min:5',
             password: 'required|string|min:6',
             imageUrl: 'url'
         });
         user.role = 'Author';
         const salt = bcrypt.genSaltSync(10);
-        user.password = bcrypt.hashSync(user.password, salt);
+        user.password = await bcrypt.hash(user.password, salt);
         try {
             const r = await req.app.locals.db.collection('users').insertOne(user);
             if (r.result.ok && r.insertedCount === 1) {

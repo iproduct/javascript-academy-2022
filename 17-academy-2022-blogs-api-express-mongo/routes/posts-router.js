@@ -1,6 +1,6 @@
 const express = require('express');
 const sendErrorResponse = require('./utils').sendErrorResponse;
-const replaceId = require('./utils').replaceId;
+const replace_id = require('./utils').replace_id;
 const ObjectID = require('mongodb').ObjectID;
 const indicative = require('indicative');
 const verifyToken = require('./verify-token');
@@ -37,14 +37,18 @@ router.post('/', function(req, res) {
     indicative.validator.validate(post, {
         // id: 'required|regex:^[0-9a-f]{24}',
         title: 'required|string|min:3|max:60',
-        subtitle: 'string|max:120',
+        text: 'string|max:120',
+        authorId: 'required|regex:^[0-9a-f]{24}',
         content: 'string',
-        imageUrl: 'url'
+        imageUrl: 'url',
+        categories: 'array',
+        'categories.*': 'string',
+        keywords: 'array',
+        'keywords.*': 'string'
     }).then(() => {
         req.app.locals.db.collection('posts').insertOne(post).then(r => {
             if (r.result.ok && r.insertedCount === 1) {
-                delete post._id;
-                post.id = r.insertedId;
+                replace_id(post);
                 console.log(`Created post: ${post.id}: ${post.title}`);
                 res.status(201).location(`/posts/${post.id}`).json(post);
             } else {
@@ -75,14 +79,19 @@ router.put('/:id', verifyToken, verifyRole(['Admin']), async (req, res) => {
         await indicative.validator.validate(post, {
             id: 'required|regex:^[0-9a-f]{24}',
             title: 'required|string|min:3|max:60',
-            subtitle: 'string|max:120',
+            text: 'string|max:120',
+            authorId: 'required|regex:^[0-9a-f]{24}',
             content: 'string',
-            imageUrl: 'url'
+            imageUrl: 'url',
+            categories: 'array',
+            'categories.*': 'string',
+            keywords: 'array',
+            'keywords.*': 'string'
         });
         try {
             r = await req.app.locals.db.collection('posts').updateOne({ _id: new ObjectID(req.params.id) }, { $set: post });
             if (r.result.ok) {
-                delete post._id;
+                replace_id(post);
                 console.log(`Updated post: ${JSON.stringify(post)}`);
                 if (r.modifiedCount === 0) {
                     console.log(`The old and the new posts are the same.`);
@@ -110,7 +119,7 @@ router.delete('/:id', async (req, res) => {
             sendErrorResponse(req, res, 404, `Post with ID=${req.params.id} does not exist`);
             return;
         }
-        replaceId(old);
+        replace_id(old)
         const r = await req.app.locals.db.collection('posts').deleteOne({ _id: new ObjectID(req.params.id) });
         if(r.result.ok && r.deletedCount === 1) {
             console.log(`Deleted post: ${old.id}: ${old.title}`);

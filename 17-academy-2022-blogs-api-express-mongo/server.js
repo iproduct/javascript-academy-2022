@@ -1,23 +1,32 @@
 const express = require('express');
 const cors = require('cors');
-// const bodyParser = require('body-parser');
+const logger = require('morgan');
 const postsRouter = require('./routes/posts-router');
 const usersRouter = require('./routes/users-router');
 const authRouter = require('./routes/auth-router');
 const sendErrorResponse = require('./routes/utils').sendErrorResponse;
 const MongoClient = require('mongodb').MongoClient;
 const url = 'mongodb://localhost:27017';
-const db_name = 'myblog9';
+const db_name = 'blogs2022';
 
 const app = express();
 const port = 5000;
 
-const corsOptions = {
-    origin: 'http://localhost:3000', // create-react-app dev server
+
+const corsOpts = {
+    origin: 'http://localhost:3000'
 }
 
-app.use(cors(corsOptions))
-app.use(express.json({limit: '50mb'}));
+if(!process.env.BLOG_API_SECRET) {
+    console.log("Error: BLOGS_API_SECRET environment variable should be set");
+}
+console.log(process.env.BLOG_API_SECRET)
+
+// apply express middleware
+app.use(cors(corsOpts))
+app.use(logger('dev'));
+app.use(express.json({ limit: '10mb' }))
+
 app.use(express.static('public'))
 app
     .use('/api/posts', postsRouter)
@@ -26,7 +35,7 @@ app
 
 app.use(function (err, req, res, next) {
     console.error(err.stack)
-    sendErrorResponse(req, res, 500, `Server error: ${err.message}`, err);
+    sendErrorResponse(req, res, err.status || 500, `Server error: ${err.message}`, err);
 })
 
 MongoClient.connect(url, { useUnifiedTopology: true }, function (err, con) {

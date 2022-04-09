@@ -9,7 +9,7 @@ module.exports.sendErrorResponse = function(req, res, status, message, err) {
     })
 }
 
-module.exports.replaceId = function (entity) {
+module.exports.replace_id = function (entity) {
     entity.id = entity._id;
     delete entity._id;
     return entity;

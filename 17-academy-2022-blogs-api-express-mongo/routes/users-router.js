@@ -1,6 +1,6 @@
 const express = require('express');
 const sendErrorResponse = require('./utils').sendErrorResponse;
-const replaceId = require('./utils').replaceId;
+const replaceId = require('./utils').replace_id;
 const ObjectID = require('mongodb').ObjectID;
 const indicative = require('indicative');
 
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
         await indicative.validator.validate(user, {
             firstName: 'required|string|min:2',
             lastName: 'required|string|min:2',
-            username: 'required|email',
+            username: 'required|string|min:5',
             password: 'required|string|min:6',
             role: 'in:Author,Admin',
             imageUrl: 'url'
