@@ -31,6 +31,7 @@ import { createPost, fetchPostById, updatePost } from '../../features/posts/post
 import { Post } from '../../model/post.model';
 import { DisplayFormikState } from '../DisplayFormikState/DispalyFormikState';
 import MaterialFiled from '../MaterialField/MaterialField';
+import { IdType } from '../../shared/shared-types';
 
 
 interface Props {
@@ -40,6 +41,7 @@ export interface MyFormValues {
     id: string;
     title: string;
     text: string;
+    authorId: IdType,
     imageUrl?: string;
     categories?: string;
     keywords?: string;
@@ -65,6 +67,7 @@ export const PostForm: FC<Props> = () => {
         id: post?.id || '',
         title: post?.title || '',
         text: post?.text || '',
+        authorId: post?.authorId || '',
         imageUrl: post?.imageUrl || '',
         categories: post?.categories?.join(', ') || '',
         keywords: post?.keywords.join(', ') || ''
@@ -107,7 +110,7 @@ export const PostForm: FC<Props> = () => {
                     title: values.title,
                     text: values.text,
                     imageUrl: values.imageUrl,
-                    authorId: '',
+                    authorId: values.authorId,
                     keywords: values.keywords?.trim().split(/[\s,;]+/).filter(kword => kword.length > 0),
                     categories: values.categories?.trim().split(/[\s,;]+/).filter(kword => kword.length > 0)
                 } as Post;

@@ -195,10 +195,12 @@ export const updatePost = (
   post: Post, 
   history: History<any>, 
   // setSubmitting: (isSubmitting: boolean) => void
-  ): AppThunk => async (dispatch) => {
+  ): AppThunk => async (dispatch, getState) => {
   try {
     dispatch(updatePostStart(post));
-    const created = await PostService.updatePost(post);
+    const auth = getState().auth;
+    const authToken = getState().auth.token;
+    const created = await PostService.updatePost(post, authToken);
     dispatch(updatePostSuccess(created));
     history.push('/posts');
   } catch (err) {
