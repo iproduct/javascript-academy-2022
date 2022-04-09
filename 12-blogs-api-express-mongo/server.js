@@ -10,7 +10,7 @@ const url = 'mongodb://localhost:27017';
 const db_name = 'myblog9';
 
 const app = express();
-const port = 8080;
+const port = 5000;
 
 const corsOptions = {
     origin: 'http://localhost:3000', // create-react-app dev server
@@ -23,11 +23,6 @@ app
     .use('/api/posts', postsRouter)
     .use('/api/users', usersRouter)
     .use('/api/auth', authRouter);
-
-app.get('/', (req, res) => res.send('Hello Express and NodeJS World!'))
-app.post('/hello/:name', function (req, res) {
-    res.type('html').send(`<h1>Hi ${req.params.name}</h1>`);
-})
 
 app.use(function (err, req, res, next) {
     console.error(err.stack)
