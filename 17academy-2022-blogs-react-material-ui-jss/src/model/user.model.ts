@@ -25,11 +25,12 @@ export interface IUser extends Indentifiable {
     email: string;
     password: string;
     imageUrl: string;
-    roles: Role[];
+    role: string;
+    active: boolean;
 }
 
 export enum Role{
-    READER, AUTHOR, ADMIN
+    AUTHOR, ADMIN
 }
 
 export class User implements IUser{
@@ -42,6 +43,7 @@ export class User implements IUser{
         public email: string,
         public password: string,
         public imageUrl: string,
-        public roles: Role[] = [Role.READER, Role.AUTHOR]
+        public role: string = Role[Role.AUTHOR],
+        public active: boolean
         ) {}
 }

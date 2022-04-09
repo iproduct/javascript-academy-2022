@@ -172,6 +172,11 @@ export default function Dashboard() {
   const errors = useSelector((state: RootState) => {
     return state.posts.error;
   });
+
+  const authErrors = useSelector((state: RootState) => {
+    return state.auth.error;
+  });
+
   const messages = useSelector((state: RootState) => {
     return state.posts.message;
   });
@@ -291,6 +296,7 @@ export default function Dashboard() {
         </Container>
       </main>
       {errors && (<Alert key={errors} severity="error">{errors}</Alert>)}
+      {authErrors && (<Alert key={authErrors} severity="error">{authErrors}</Alert>)}
       {messages && (<Alert key={messages} severity="success" >{messages}</Alert>)}
     </div>
   );

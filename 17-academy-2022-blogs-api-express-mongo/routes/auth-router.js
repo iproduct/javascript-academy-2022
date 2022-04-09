@@ -21,12 +21,12 @@ router.post('/login', async (req, res) => {
         try {
             const user = await db.collection('users').findOne({ username: credentials.username });
             if (!user) {
-                sendErrorResponse(req, res, 404, `User with Username=${credentials.username} does not exist.`);
+                sendErrorResponse(req, res, 401,  `Username or password is incorrect`);
                 return;
             }
             const passIsValid = await bcrypt.compare(credentials.password, user.password);
             if(!passIsValid) {
-                sendErrorResponse(req, res, 401, `Username or password is incorrect.`);
+                sendErrorResponse(req, res, 401, `Username or password is incorrect`);
                 return;
             }
             replace_id(user);
